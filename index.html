@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internationalauto4u — Auto Repair, Sales, Hybrid Specialist & Tires in SeaTac, WA</title>
+<meta name="description" content="Auto repair and sales, hybrid specialist, wheels and tires in SeaTac, WA. Honest diagnostics, clear estimates, road-ready results.">
+<meta name="theme-color" content="#0A0707">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { display: ['"Space Grotesk"','Inter','system-ui','sans-serif'], sans: ['Inter','system-ui','sans-serif'] },
+    colors: { ink:'#0A0707', a1:'#FF9D94', a2:'#FF4B3E', a3:'#B3261E' }
+  } }
+};
+</script>
+<style>
+:root{
+  --bg:#0A0707; --surface:rgba(255,255,255,.04); --line:rgba(255,255,255,.10);
+  --text:#F4F1EA; --muted:#9A9DA6;
+  --a1:#FF9D94; --a2:#FF4B3E; --a3:#B3261E;
+  --grad:#FF4B3E;
+  --glow:0 0 40px rgba(255,75,62,.28);
+}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:rgba(255,75,62,.35)}
+a,button,input,textarea,select{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--a1);outline-offset:3px;border-radius:12px}
+.font-display{font-family:"Space Grotesk",Inter,sans-serif}
+.glass{background:rgba(255,255,255,.045);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--line)}
+.grid-bg{background-color:#0E0A0A;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:32px 32px}
+.txt-grad{color:var(--a2)}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a2);font-weight:600}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:0 1.5rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .25s,box-shadow .25s,background .25s,border-color .25s;cursor:pointer;white-space:nowrap}
+.btn-primary{background:var(--grad);color:#FFFFFF;box-shadow:var(--glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 56px rgba(255,75,62,.45)}
+.btn-ghost{border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);backdrop-filter:blur(10px)}
+.btn-ghost:hover{border-color:rgba(255,75,62,.6);background:rgba(255,75,62,.08)}
+.pulse{animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,75,62,.55),var(--glow)}70%{box-shadow:0 0 0 18px rgba(255,75,62,0),var(--glow)}100%{box-shadow:0 0 0 0 rgba(255,75,62,0),var(--glow)}}
+.nudge{animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+
+/* Hero entrance */
+.fu{opacity:0;transform:translateY(22px);animation:fu .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes fu{to{opacity:1;transform:none}}
+.mask{display:block;overflow:hidden;padding-bottom:.08em}
+.mask>span{display:block;transform:translateY(110%);animation:rise 1s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes rise{to{transform:none}}
+.shimmer{background:linear-gradient(100deg,#B3261E 0%,#FF4B3E 25%,#FF9D94 50%,#FF4B3E 75%,#B3261E 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 5s linear infinite}
+@keyframes shim{from{background-position:120% 0}to{background-position:-130% 0}}
+.kb{animation:kb 28s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.14) translate(-1.5%,-1%)}}
+
+/* Ambient */
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;background:radial-gradient(circle,var(--a2),transparent 70%);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(60px,-40px)}}
+.streak{position:absolute;top:-20%;height:140%;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,157,148,.55),transparent);transform:rotate(18deg);opacity:0;animation:streak 9s ease-in-out infinite}
+@keyframes streak{0%{left:-10%;opacity:0}10%{opacity:.8}50%{opacity:.4}100%{left:110%;opacity:0}}
+.ember{position:absolute;bottom:-10px;width:var(--s);height:var(--s);border-radius:50%;background:var(--a1);box-shadow:0 0 10px 2px rgba(255,75,62,.7);opacity:0;animation:ember var(--d) linear var(--dl) infinite}
+@keyframes ember{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}100%{transform:translate(var(--x),-110vh);opacity:0}}
+#mouseGlow{position:absolute;width:520px;height:520px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,75,62,.16),transparent 65%);transform:translate(-50%,-50%);left:50%;top:40%;transition:left .25s ease-out,top .25s ease-out}
+.cue-dot{animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:0}30%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+
+/* Reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--td,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* Media with fallback */
+.media{position:relative;overflow:hidden;background-color:#0E0A0A}
+.media .fb{position:absolute;inset:0;color:var(--a2);display:flex;align-items:flex-start;justify-content:flex-end;padding:1rem;transition:opacity .5s}
+.media .fb svg{width:42%;max-width:150px;height:auto;opacity:.65}
+.media img,.media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.media.has img,.media.has video{opacity:1}
+.media.has .fb{opacity:0}
+.zoom:hover .media img,.zoom:hover .media video{transform:scale(1.07)}
+.media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,7,.75),transparent 55%);pointer-events:none}
+
+/* Cards */
+.card{border-radius:28px;transition:transform .4s,border-color .4s,box-shadow .4s}
+.card:hover{transform:translateY(-6px);border-color:rgba(255,75,62,.45);box-shadow:0 30px 60px -30px rgba(255,75,62,.25)}
+.ico{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,75,62,.1);border:1px solid rgba(255,75,62,.3);color:var(--a1)}
+
+/* Timeline */
+.tl-line{position:absolute;left:0;right:0;top:27px;height:2px;background:var(--line)}
+.tl-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--grad);box-shadow:0 0 14px rgba(255,75,62,.6);transition:width 2s cubic-bezier(.2,.7,.2,1)}
+.in .tl-fill,.tl-wrap.in .tl-fill{width:100%}
+@media (max-width:1023px){.tl-line{left:27px;right:auto;top:0;bottom:0;width:2px;height:auto}.tl-fill{width:100%!important;height:0;transition:height 2s cubic-bezier(.2,.7,.2,1)}.tl-wrap.in .tl-fill{height:100%}}
+
+/* Parallax band */
+.band{background-attachment:fixed;background-size:cover;background-position:center}
+@media (max-width:1023px){.band{background-attachment:scroll}}
+
+/* Form */
+.svc-opt{cursor:pointer;display:flex;flex-direction:column;gap:.75rem;padding:1.1rem;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:all .3s;min-height:112px}
+.svc-opt:hover{border-color:rgba(255,75,62,.45)}
+input:checked+.svc-opt{border-color:var(--a2);background:rgba(255,75,62,.09);box-shadow:inset 0 0 0 1px var(--a2),var(--glow)}
+input:focus-visible+.svc-opt{outline:2px solid var(--a1);outline-offset:3px}
+.fl{position:relative}
+.fl input,.fl textarea{width:100%;min-height:56px;padding:1.55rem 1rem .55rem;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);font-size:1rem;transition:border-color .25s,background .25s}
+.fl textarea{min-height:110px;resize:vertical}
+.fl label{position:absolute;left:1rem;top:1.05rem;color:var(--muted);font-size:.95rem;pointer-events:none;transition:all .2s}
+.fl input:focus,.fl textarea:focus{border-color:var(--a2);background:rgba(255,75,62,.05);outline:none}
+.fl input:focus+label,.fl input:not(:placeholder-shown)+label,.fl textarea:focus+label,.fl textarea:not(:placeholder-shown)+label{top:.5rem;font-size:.7rem;letter-spacing:.06em;color:var(--a1)}
+.fl input[type=date]{color-scheme:dark}
+.fl input[type=date]+label{top:.5rem;font-size:.7rem;letter-spacing:.06em;color:var(--a1)}
+.pill{cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 1.1rem;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:.9rem;font-weight:500;transition:all .25s}
+.pill:hover{border-color:rgba(255,75,62,.5)}
+input:checked+.pill{background:var(--grad);color:#FFFFFF;border-color:transparent;box-shadow:var(--glow)}
+input:focus-visible+.pill{outline:2px solid var(--a1);outline-offset:3px}
+.extra{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease,opacity .45s;opacity:0}
+.extra.open{grid-template-rows:1fr;opacity:1}
+.extra>div{overflow:hidden}
+.check path{stroke-dasharray:60;stroke-dashoffset:60;animation:draw .7s .35s ease forwards}
+.check circle{stroke-dasharray:190;stroke-dashoffset:190;animation:draw 1s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* Video button */
+.vbtn{position:absolute;right:16px;bottom:16px;z-index:5;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;transition:transform .25s}
+.vbtn:hover{transform:scale(1.08)}
+
+
+/* ---- Automotive motion ---- */
+.gauge-wrap{filter:drop-shadow(0 0 40px rgba(255,75,62,.18))}
+.g-face{fill:rgba(255,255,255,.03);stroke:rgba(255,255,255,.10);stroke-width:1.5}
+.g-ring{fill:none;stroke:rgba(255,255,255,.16);stroke-width:2}
+.g-redarc{fill:none;stroke:var(--a2);stroke-width:5;stroke-linecap:round;opacity:.9}
+.g-t{stroke:rgba(255,255,255,.35);stroke-width:1.2}
+.g-t.g-maj{stroke:rgba(255,255,255,.7);stroke-width:2.2}
+.g-t.g-red{stroke:var(--a2)}
+.g-n{fill:rgba(255,255,255,.75);font:600 13px "Space Grotesk",Inter,sans-serif}
+.g-n.g-red{fill:var(--a2)}
+.g-lab{fill:rgba(255,255,255,.45);font:500 8px Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.needle{transform-origin:150px 150px;transform:rotate(-96deg);animation:rev 12s cubic-bezier(.4,0,.2,1) infinite;filter:drop-shadow(0 0 6px var(--a2))}
+.needle line{stroke:var(--a2);stroke-width:3;stroke-linecap:round}
+.g-hub{fill:#0B0C0F;stroke:var(--a2);stroke-width:2.5}
+.g-ready rect{fill:rgba(255,75,62,.14);stroke:var(--a2);stroke-width:1;animation:ready 2.4s ease-in-out infinite}
+.g-ready text{fill:var(--a1);font:600 9px Inter,sans-serif;letter-spacing:.22em}
+@keyframes rev{0%{transform:rotate(-120deg)}8%{transform:rotate(104deg)}16%{transform:rotate(-96deg)}42%{transform:rotate(-96deg)}47%{transform:rotate(30deg)}51%{transform:rotate(-40deg)}57%{transform:rotate(76deg)}66%{transform:rotate(-96deg)}100%{transform:rotate(-96deg)}}
+@keyframes ready{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes wob{0%,100%{transform:rotate(0)}25%{transform:rotate(-14deg)}75%{transform:rotate(14deg)}}
+@keyframes zap{0%,100%{filter:none;opacity:.85}45%{filter:drop-shadow(0 0 6px var(--a2));opacity:1}50%{opacity:.5}55%{filter:drop-shadow(0 0 8px var(--a2));opacity:1}}
+.ico:has(use[href="#i-bolt"]) svg{animation:zap 2.6s ease-in-out infinite}
+.card:hover .ico:has(use[href="#il-wheel"]) svg,.svc-opt:hover .ico:has(use[href="#il-wheel"]) svg{animation:spin 1.1s linear infinite}
+.card:hover .ico:has(use[href="#i-shield"]) svg{animation:wob .7s ease-in-out}
+.fb svg:has(use[href="#il-wheel"]){animation:spin 18s linear infinite}
+.fb svg:has(use[href="#il-wrench"]){animation:wob 4s ease-in-out infinite}
+.fb svg:has(use[href="#il-hybrid"]){animation:zap 3s ease-in-out infinite}
+
+/* Scroll progress: a tire rolling along a road line */
+#progWrap{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;pointer-events:none}
+#prog{height:100%;background:var(--a2);transform-origin:left;transform:scaleX(0);box-shadow:0 0 12px rgba(255,75,62,.7)}
+#progWheel{position:absolute;top:1.5px;left:0;width:22px;height:22px;transform:translate(-50%,-50%);color:var(--a2);background:#0A0707;border-radius:50%}
+
+/* Road + driving car */
+.road{position:absolute;left:0;right:0;bottom:0;height:150px;overflow:hidden;pointer-events:none}
+.road::before{content:"";position:absolute;left:0;right:0;bottom:0;height:54px;background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.14)}
+.road-line{position:absolute;left:0;right:0;bottom:25px;height:3px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 38px,transparent 38px 76px);animation:roadmove .9s linear infinite}
+@keyframes roadmove{to{background-position-x:-76px}}
+.car{position:absolute;left:0;bottom:30px;width:210px;color:var(--a2);animation:drive 13s linear infinite}
+.car-body{animation:bob .45s ease-in-out infinite alternate}
+@keyframes drive{from{transform:translateX(-260px)}to{transform:translateX(calc(100vw + 60px))}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-1.5px)}}
+.whl{transform-box:fill-box;transform-origin:center;animation:spin .55s linear infinite}
+.beam{fill:rgba(255,75,62,.16)}
+
+/* Rolling tire on the process timeline */
+.tl-car{position:absolute;top:27px;left:0;width:36px;height:36px;border-radius:50%;transform:translate(-50%,-50%);background:#0A0707;border:1px solid var(--a2);color:var(--a2);display:grid;place-items:center;z-index:5;transition:left 2s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 18px rgba(255,75,62,.45)}
+.tl-car svg{width:22px;height:22px}
+.tl-wrap.in .tl-car{left:100%}
+.tl-wrap.in .tl-car svg{animation:spin .5s linear 4}
+@media (max-width:1023px){.tl-car{left:27px;top:0;transition:top 2s cubic-bezier(.2,.7,.2,1)}.tl-wrap.in .tl-car{left:27px;top:100%}}
+
+
+/* ---- Responsive fixes ---- */
+.h1x{font-size:clamp(2rem,10.2vw,3.2rem)}
+@media (min-width:640px){.h1x{font-size:clamp(3.2rem,calc((100vw - 4rem)/11),5rem)}}
+.fl label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 2rem)}
+html{overflow-x:hidden}
+@media (max-width:639px){main .btn{width:100%}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .fu,.js .rv{opacity:1!important;transform:none!important}
+  .mask>span{transform:none!important}
+  .ember,.streak,.orb{display:none}
+  .tl-fill{width:100%!important}
+  .tl-car{display:none}
+  .shimmer{background-position:50% 0}
+  .needle{transform:rotate(-30deg)!important}
+}
+</style>
+</head>
+<body>
+<div id="progWrap" aria-hidden="true"><div id="prog"></div><svg id="progWheel" viewBox="0 0 100 100"><use href="#il-wheel"/></svg></div>
+
+<!-- ============ SVG SPRITE: logo + icons + fallback illustrations ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF9D94"/><stop offset=".5" stop-color="#FF4B3E"/><stop offset="1" stop-color="#B3261E"/>
+    </linearGradient>
+  </defs>
+  <symbol id="logo-mark" viewBox="0 0 64 64">
+    <rect x="2" y="2" width="60" height="60" rx="18" fill="#0B0C0F" stroke="#FF4B3E" stroke-width="1.5"/>
+    <circle cx="32" cy="32" r="15" fill="none" stroke="#FF4B3E" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="70 24" transform="rotate(-50 32 32)"/>
+    <path d="M34.5 19.5 L24.5 34 H31.5 L29.5 45 L40 29.5 H33 Z" fill="#FF4B3E"/>
+  </symbol>
+  <symbol id="logo-full" viewBox="0 0 350 64">
+    <use href="#logo-mark" width="64" height="64"/>
+    <text x="76" y="35" font-family="'Space Grotesk','Inter',Arial,sans-serif" font-size="25" font-weight="600" letter-spacing="-0.5"><tspan fill="#F4F1EA">International</tspan><tspan fill="#FF4B3E">auto4u</tspan></text>
+    <text x="77" y="53" font-family="'Inter',Arial,sans-serif" font-size="9" font-weight="500" letter-spacing="3.2" fill="#8C8F98">REPAIR · SALES · HYBRID · TIRES</text>
+  </symbol>
+
+  <!-- Line-art illustrations (fallback layer) -->
+  <symbol id="il-car" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 68h176M24 68c-8 0-12-4-12-10 0-8 6-12 16-14l26-8 18-18c4-4 8-5 14-5h40c6 0 10 2 14 6l16 18 22 6c8 2 10 8 10 14 0 6-4 10-10 10"/>
+    <path d="M62 36h36V20H80zM108 36h40l-14-16h-26z"/>
+    <circle cx="56" cy="70" r="14"/><circle cx="56" cy="70" r="5"/><circle cx="148" cy="70" r="14"/><circle cx="148" cy="70" r="5"/>
+  </symbol>
+  <symbol id="il-hybrid" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M50 8C28 22 22 46 34 66c8 14 22 20 30 24 10-16 18-34 12-54C72 24 62 14 50 8z"/>
+    <path d="M52 30 40 54h12l-4 18 16-26H52z"/>
+    <path d="M50 8v34M50 56v34" stroke-dasharray="2 6" opacity=".6"/>
+  </symbol>
+  <symbol id="il-wheel" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="8"/>
+    <path d="M50 18v24M50 58v24M18 50h24M58 50h24M27 27l17 17M56 56l17 17M73 27 56 44M44 56 27 73"/>
+    <circle cx="50" cy="50" r="3"/>
+  </symbol>
+  <symbol id="il-wrench" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M70 12a20 20 0 0 0-18 27L14 77a8 8 0 0 0 11 11l38-38a20 20 0 0 0 27-18l-13 13-12-4-4-12z"/>
+    <circle cx="20" cy="82" r="2"/>
+  </symbol>
+  <symbol id="il-engine" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 34h54l8 10h14v30H88l-8 10H34l-8-10H12V44h14z"/>
+    <path d="M40 34V22h20v12M44 22h12M50 54v18M66 54v18M34 54v18"/>
+    <circle cx="20" cy="59" r="2"/>
+  </symbol>
+  <symbol id="il-tow" viewBox="0 0 200 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 70h180M20 70V46h40l12-18h24v42M100 70V50h80v20M120 50 150 20l16 0"/>
+    <path d="M150 20v22"/><circle cx="48" cy="72" r="12"/><circle cx="150" cy="72" r="12"/><circle cx="48" cy="72" r="4"/><circle cx="150" cy="72" r="4"/>
+  </symbol>
+
+  <!-- UI icons -->
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.5-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.5V4.4C16.3 4.3 15.5 4.2 14.6 4.2c-2.3 0-3.9 1.4-3.9 4v2.3H8v3h2.7V21z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5 3z"/></symbol>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header id="top" class="fixed top-0 inset-x-0 z-50 px-3 sm:px-6 pt-3 fu" style="animation-delay:.05s">
+  <nav class="glass mx-auto max-w-7xl rounded-full pl-4 pr-2 py-2 flex items-center justify-between" aria-label="Primary">
+    <a href="#top" class="flex items-center" aria-label="Internationalauto4u home">
+      <svg class="h-10 w-10 min-[480px]:hidden" viewBox="0 0 64 64" role="img" aria-label="Internationalauto4u"><use href="#logo-mark"/></svg>
+      <svg class="hidden min-[480px]:block h-9 sm:h-10 w-auto" viewBox="0 0 350 64" width="198" height="36" role="img" aria-label="Internationalauto4u"><use href="#logo-full"/></svg>
+    </a>
+    <ul class="hidden lg:flex items-center gap-8 text-sm text-[color:var(--muted)]">
+      <li><a class="hover:text-white transition" href="#services">Services</a></li>
+      <li><a class="hover:text-white transition" href="#workshop">Workshop</a></li>
+      <li><a class="hover:text-white transition" href="#why">Why us</a></li>
+      <li><a class="hover:text-white transition" href="#process">Process</a></li>
+      <li><a class="hover:text-white transition" href="#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-2">
+      <span class="hidden md:block"><a href="tel:+12064240001" class="btn btn-ghost !min-h-[44px] !px-4 text-sm"><svg class="w-4 h-4"><use href="#i-phone"/></svg>(206) 424-0001</a></span>
+      <a href="#book" class="btn btn-primary !min-h-[44px] !px-5 text-sm">Get a Quote</a>
+      <button id="menuBtn" class="lg:hidden w-11 h-11 rounded-full grid place-items-center border border-[color:var(--line)]" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIco" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="hidden lg:hidden glass mx-auto max-w-7xl mt-2 rounded-3xl p-4">
+    <ul class="flex flex-col text-lg font-display">
+      <li><a class="block py-3 px-3 rounded-xl hover:bg-white/5" href="#services">Services</a></li>
+      <li><a class="block py-3 px-3 rounded-xl hover:bg-white/5" href="#workshop">Workshop</a></li>
+      <li><a class="block py-3 px-3 rounded-xl hover:bg-white/5" href="#why">Why us</a></li>
+      <li><a class="block py-3 px-3 rounded-xl hover:bg-white/5" href="#process">Process</a></li>
+      <li><a class="block py-3 px-3 rounded-xl hover:bg-white/5" href="#contact">Contact</a></li>
+      <li><a class="block py-3 px-3 rounded-xl text-[color:var(--a1)]" href="tel:+12064240001">Call (206) 424-0001</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative min-h-[100svh] flex items-center overflow-hidden grid-bg">
+  <!-- image fallback with slow zoom (behind video) -->
+  <div class="absolute inset-0 media kb" id="heroMedia" style="background:transparent">
+    <img data-fb src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=70" alt="" fetchpriority="high">
+  </div>
+  <video id="heroVideo" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000" muted autoplay loop playsinline preload="metadata" aria-hidden="true">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-driving-through-a-city-at-night-4252-large.mp4" type="video/mp4">
+    <source src="https://cdn.coverr.co/videos/coverr-a-car-driving-at-night-4531/1080p.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(10,7,7,.55),rgba(10,7,7,.92)_75%)]"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-[#0A0707] via-transparent to-[#0A0707]/60"></div>
+
+  <!-- ambient layers -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <div class="orb" style="width:520px;height:520px;left:-8%;top:10%"></div>
+    <div class="orb" style="width:420px;height:420px;right:-6%;bottom:0;animation-delay:-6s;animation-duration:22s"></div>
+    <div class="streak" style="animation-delay:0s"></div>
+    <div class="streak" style="animation-delay:3.2s;animation-duration:11s"></div>
+    <div class="streak" style="animation-delay:6.4s;animation-duration:13s"></div>
+    <div id="embers" class="absolute inset-0"></div>
+    <div id="mouseGlow"></div>
+  </div>
+
+  <!-- illustrated art right of headline (fallback decor) -->
+  <div class="hidden xl:block absolute right-[5%] top-1/2 -translate-y-1/2 w-[27%] max-w-[380px] pointer-events-none" aria-hidden="true" data-par="-16">
+    <div class="gauge-wrap">
+      <svg viewBox="0 0 300 300" class="w-full">
+        <circle cx="150" cy="150" r="146" class="g-face"/>
+        <path class="g-ring" d="M39.15 214 A128 128 0 1 1 260.85 214"/>
+        <path class="g-redarc" d="M277.3 136.6 A128 128 0 0 1 260.85 214"/>
+        <line class="g-t g-maj" x1="44.3" y1="211.0" x2="56.5" y2="204.0"/><line class="g-t" x1="34.9" y1="201.2" x2="42.2" y2="198.0"/><line class="g-t" x1="30.2" y1="188.9" x2="37.8" y2="186.5"/><line class="g-t" x1="26.8" y1="176.2" x2="34.6" y2="174.5"/><line class="g-t" x1="24.7" y1="163.2" x2="32.6" y2="162.3"/><line class="g-t g-maj" x1="28.0" y1="150.0" x2="42.0" y2="150.0"/><line class="g-t" x1="24.7" y1="136.8" x2="32.6" y2="137.7"/><line class="g-t" x1="26.8" y1="123.8" x2="34.6" y2="125.5"/><line class="g-t" x1="30.2" y1="111.1" x2="37.8" y2="113.5"/><line class="g-t" x1="34.9" y1="98.8" x2="42.2" y2="102.0"/><line class="g-t g-maj" x1="44.3" y1="89.0" x2="56.5" y2="96.0"/><line class="g-t" x1="48.1" y1="75.9" x2="54.5" y2="80.6"/><line class="g-t" x1="56.4" y1="65.7" x2="62.3" y2="71.0"/><line class="g-t" x1="65.7" y1="56.4" x2="71.0" y2="62.3"/><line class="g-t" x1="75.9" y1="48.1" x2="80.6" y2="54.5"/><line class="g-t g-maj" x1="89.0" y1="44.3" x2="96.0" y2="56.5"/><line class="g-t" x1="98.8" y1="34.9" x2="102.0" y2="42.2"/><line class="g-t" x1="111.1" y1="30.2" x2="113.5" y2="37.8"/><line class="g-t" x1="123.8" y1="26.8" x2="125.5" y2="34.6"/><line class="g-t" x1="136.8" y1="24.7" x2="137.7" y2="32.6"/><line class="g-t g-maj" x1="150.0" y1="28.0" x2="150.0" y2="42.0"/><line class="g-t" x1="163.2" y1="24.7" x2="162.3" y2="32.6"/><line class="g-t" x1="176.2" y1="26.8" x2="174.5" y2="34.6"/><line class="g-t" x1="188.9" y1="30.2" x2="186.5" y2="37.8"/><line class="g-t" x1="201.2" y1="34.9" x2="198.0" y2="42.2"/><line class="g-t g-maj" x1="211.0" y1="44.3" x2="204.0" y2="56.5"/><line class="g-t" x1="224.1" y1="48.1" x2="219.4" y2="54.5"/><line class="g-t" x1="234.3" y1="56.4" x2="229.0" y2="62.3"/><line class="g-t" x1="243.6" y1="65.7" x2="237.7" y2="71.0"/><line class="g-t" x1="251.9" y1="75.9" x2="245.5" y2="80.6"/><line class="g-t g-maj" x1="255.7" y1="89.0" x2="243.5" y2="96.0"/><line class="g-t" x1="265.1" y1="98.8" x2="257.8" y2="102.0"/><line class="g-t" x1="269.8" y1="111.1" x2="262.2" y2="113.5"/><line class="g-t" x1="273.2" y1="123.8" x2="265.4" y2="125.5"/><line class="g-t g-red" x1="275.3" y1="136.8" x2="267.4" y2="137.7"/><line class="g-t g-maj g-red" x1="272.0" y1="150.0" x2="258.0" y2="150.0"/><line class="g-t g-red" x1="275.3" y1="163.2" x2="267.4" y2="162.3"/><line class="g-t g-red" x1="273.2" y1="176.2" x2="265.4" y2="174.5"/><line class="g-t g-red" x1="269.8" y1="188.9" x2="262.2" y2="186.5"/><line class="g-t g-red" x1="265.1" y1="201.2" x2="257.8" y2="198.0"/><line class="g-t g-maj g-red" x1="255.7" y1="211.0" x2="243.5" y2="204.0"/><text class="g-n" x="72.1" y="200.0" text-anchor="middle">0</text><text class="g-n" x="60.0" y="155.0" text-anchor="middle">1</text><text class="g-n" x="72.1" y="110.0" text-anchor="middle">2</text><text class="g-n" x="105.0" y="77.1" text-anchor="middle">3</text><text class="g-n" x="150.0" y="65.0" text-anchor="middle">4</text><text class="g-n" x="195.0" y="77.1" text-anchor="middle">5</text><text class="g-n" x="227.9" y="110.0" text-anchor="middle">6</text><text class="g-n g-red" x="240.0" y="155.0" text-anchor="middle">7</text><text class="g-n g-red" x="227.9" y="200.0" text-anchor="middle">8</text>
+        <text class="g-lab" x="150" y="128" text-anchor="middle">x1000 r/min</text>
+        <g class="needle"><line x1="150" y1="162" x2="150" y2="46"/><circle cx="150" cy="150" r="9" class="g-hub"/></g>
+        <g class="g-ready"><rect x="124" y="196" width="52" height="20" rx="10"/><text x="150" y="210" text-anchor="middle">READY</text></g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 pt-32 pb-28" data-par="10">
+    <div class="max-w-4xl">
+      <div class="fu inline-flex items-center gap-2 glass rounded-full pl-2 pr-4 py-1.5 text-xs sm:text-sm text-[color:var(--muted)]" style="animation-delay:.3s">
+        <span class="w-6 h-6 rounded-full grid place-items-center bg-[color:var(--a2)]/15 text-[color:var(--a1)]"><svg class="w-3.5 h-3.5"><use href="#i-pin"/></svg></span>
+        SeaTac, WA · Repair · Sales · Hybrid · Tires
+      </div>
+
+      <h1 class="h1x font-display font-semibold tracking-[-0.035em] leading-[1] mt-7" aria-label="Precision repair. Hybrid expertise. Road-ready, always.">
+        <span class="mask"><span style="animation-delay:.55s">Precision repair.</span></span>
+        <span class="mask"><span style="animation-delay:.72s">Hybrid expertise.</span></span>
+        <span class="mask"><span style="animation-delay:.89s"><em class="shimmer not-italic">Road-ready, always.</em></span></span>
+      </h1>
+
+      <p class="fu mt-7 max-w-xl text-base sm:text-lg text-[color:var(--muted)] leading-relaxed" style="animation-delay:1.25s">
+        One trusted shop in SeaTac for auto repair, quality used-vehicle sales, hybrid service and fresh wheels &amp; tires — clear estimates, honest advice, no surprises.
+      </p>
+
+      <div class="fu mt-9 flex flex-wrap items-center gap-3" style="animation-delay:1.45s">
+        <a href="#book" class="btn btn-primary pulse text-base">Book a Service <svg class="w-5 h-5 nudge"><use href="#i-arrow"/></svg></a>
+        <a href="tel:+12064240001" class="btn btn-ghost text-base"><svg class="w-5 h-5"><use href="#i-phone"/></svg> Call the shop</a>
+      </div>
+
+      <dl class="fu mt-10 sm:mt-14 grid grid-cols-1 min-[440px]:grid-cols-3 gap-3 sm:gap-4 max-w-xl" style="animation-delay:1.7s">
+        <div class="glass rounded-2xl p-4">
+          <dt class="sr-only">Core services</dt>
+          <dd class="font-display text-2xl sm:text-4xl font-semibold txt-grad"><span id="countUp" data-to="4">0</span></dd>
+          <p class="text-xs sm:text-sm text-[color:var(--muted)] mt-1">Core services, one roof</p>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <dt class="sr-only">Specialty</dt>
+          <dd class="font-display text-2xl sm:text-4xl font-semibold txt-grad">Hybrid</dd>
+          <p class="text-xs sm:text-sm text-[color:var(--muted)] mt-1">Specialist care</p>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <dt class="sr-only">Location</dt>
+          <dd class="font-display text-2xl sm:text-4xl font-semibold txt-grad">SeaTac</dd>
+          <p class="text-xs sm:text-sm text-[color:var(--muted)] mt-1">Right on International Blvd</p>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <a href="#services" class="fu absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2 text-[11px] tracking-[.25em] uppercase text-[color:var(--muted)]" style="animation-delay:2.1s" aria-label="Scroll to services">
+    Scroll
+    <span class="w-6 h-10 rounded-full border border-[color:var(--line)] flex justify-center pt-2"><span class="cue-dot w-1 h-2 rounded-full bg-[color:var(--a1)]"></span></span>
+  </a>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="relative py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="max-w-2xl rv">
+      <p class="eyebrow">Services</p>
+      <h2 class="font-display font-semibold tracking-tight text-4xl sm:text-5xl mt-4 leading-[1.05]">Everything your car needs, <span class="txt-grad">under one roof.</span></h2>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+      <!-- 1 -->
+      <article class="card glass zoom overflow-hidden rv" style="--td:.0s">
+        <div class="media grid-bg aspect-[4/3]">
+          <div class="fb" aria-hidden="true"><svg viewBox="0 0 120 100"><use href="#il-wrench"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=70" alt="Mechanic servicing a vehicle in the shop" loading="lazy">
+        </div>
+        <div class="p-6">
+          <div class="ico mb-4"><svg class="w-6 h-6"><use href="#i-shield"/></svg></div>
+          <h3 class="font-display text-2xl font-semibold">Auto Repair</h3>
+          <p class="text-[color:var(--muted)] mt-2 text-sm leading-relaxed">Diagnostics, brakes, suspension, engine and maintenance — explained clearly and quoted before we start.</p>
+          <a href="#book" data-pick="repair" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--a1)] min-h-[44px]">Book repair <svg class="w-4 h-4"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="card glass zoom overflow-hidden rv" style="--td:.08s">
+        <div class="media grid-bg aspect-[4/3]">
+          <div class="fb" aria-hidden="true"><svg viewBox="0 0 200 100"><use href="#il-car"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=70" alt="Vehicle available for sale" loading="lazy">
+        </div>
+        <div class="p-6">
+          <div class="ico mb-4"><svg class="w-6 h-6"><use href="#i-layers"/></svg></div>
+          <h3 class="font-display text-2xl font-semibold">Auto Sales</h3>
+          <p class="text-[color:var(--muted)] mt-2 text-sm leading-relaxed">Hand-picked vehicles, inspected by our own technicians, with straightforward pricing and no pressure.</p>
+          <a href="#book" data-pick="sales" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--a1)] min-h-[44px]">Ask about inventory <svg class="w-4 h-4"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="card glass zoom overflow-hidden rv" style="--td:.16s">
+        <div class="media grid-bg aspect-[4/3]">
+          <div class="fb" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#il-hybrid"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=900&q=70" alt="Hybrid vehicle charging" loading="lazy">
+        </div>
+        <div class="p-6">
+          <div class="ico mb-4"><svg class="w-6 h-6"><use href="#i-bolt"/></svg></div>
+          <h3 class="font-display text-2xl font-semibold">Hybrid Specialist</h3>
+          <p class="text-[color:var(--muted)] mt-2 text-sm leading-relaxed">Battery health checks, hybrid system diagnostics and service by technicians who work on hybrids every day.</p>
+          <a href="#book" data-pick="hybrid" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--a1)] min-h-[44px]">Book hybrid service <svg class="w-4 h-4"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="card glass zoom overflow-hidden rv" style="--td:.24s">
+        <div class="media grid-bg aspect-[4/3]">
+          <div class="fb" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#il-wheel"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=900&q=70" alt="Alloy wheel and tire" loading="lazy">
+        </div>
+        <div class="p-6">
+          <div class="ico mb-4"><svg class="w-6 h-6"><use href="#il-wheel"/></svg></div>
+          <h3 class="font-display text-2xl font-semibold">Wheels &amp; Tires</h3>
+          <p class="text-[color:var(--muted)] mt-2 text-sm leading-relaxed">New tires, mounting, balancing, alignment and wheel upgrades — matched to how and where you drive.</p>
+          <a href="#book" data-pick="tires" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--a1)] min-h-[44px]">Get tire pricing <svg class="w-4 h-4"><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKSHOP GALLERY ============ -->
+<section id="workshop" class="relative py-24 sm:py-32 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"><div class="orb" style="width:600px;height:600px;right:-10%;top:10%;opacity:.18"></div></div>
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-6 rv">
+      <div class="max-w-2xl">
+        <p class="eyebrow">The workshop</p>
+        <h2 class="font-display font-semibold tracking-tight text-4xl sm:text-5xl mt-4 leading-[1.05]">A clean, modern bay <span class="txt-grad">built for precision.</span></h2>
+      </div>
+      <a href="#book" class="btn btn-ghost">Visit the shop <svg class="w-4 h-4"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 auto-rows-[170px] sm:auto-rows-[210px] gap-3 sm:gap-4">
+      <!-- video tile -->
+      <div class="media grid-bg rounded-3xl border border-[color:var(--line)] col-span-2 row-span-2 rv zoom" id="vidTile">
+        <div class="fb" aria-hidden="true"><svg viewBox="0 0 200 100" style="width:36%;max-width:200px"><use href="#il-tow"/></svg></div>
+        <video id="galVideo" muted loop playsinline preload="metadata" autoplay aria-label="Workshop video loop">
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-mechanic-working-on-a-car-engine-4260-large.mp4" type="video/mp4">
+          <source src="https://cdn.coverr.co/videos/coverr-mechanic-working-on-a-car-1560/1080p.mp4" type="video/mp4">
+        </video>
+        <p class="absolute left-5 bottom-5 z-[4] text-sm font-medium max-w-[70%]">Inside the shop <span class="block text-xs text-[color:var(--muted)] font-normal">Placeholder loop — swap for the client’s own footage</span></p>
+        <button id="vidBtn" class="vbtn glass" aria-label="Pause video" aria-pressed="true"><svg class="w-5 h-5"><use id="vidIco" href="#i-pause"/></svg></button>
+      </div>
+      <figure class="media grid-bg rounded-3xl border border-[color:var(--line)] rv zoom" style="--td:.08s">
+        <div class="fb" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#il-engine"/></svg></div>
+        <img data-fb src="https://images.unsplash.com/photo-1632823471565-1ecdf5c6da12?auto=format&fit=crop&w=800&q=70" alt="Engine bay under inspection" loading="lazy">
+        <figcaption class="absolute left-4 bottom-4 z-[4] text-sm font-medium">Engine diagnostics</figcaption>
+      </figure>
+      <figure class="media grid-bg rounded-3xl border border-[color:var(--line)] rv zoom" style="--td:.16s">
+        <div class="fb" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#il-wheel"/></svg></div>
+        <img data-fb src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=70" alt="Performance wheels on display" loading="lazy">
+        <figcaption class="absolute left-4 bottom-4 z-[4] text-sm font-medium">Wheel &amp; tire bay</figcaption>
+      </figure>
+      <figure class="media grid-bg rounded-3xl border border-[color:var(--line)] col-span-2 rv zoom" style="--td:.24s">
+        <div class="fb" aria-hidden="true"><svg viewBox="0 0 200 100" style="width:30%;max-width:170px"><use href="#il-car"/></svg></div>
+        <img data-fb src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=70" alt="Vehicles ready for sale" loading="lazy">
+        <figcaption class="absolute left-4 bottom-4 z-[4] text-sm font-medium">Sales lot</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section id="why" class="relative py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="max-w-2xl rv">
+      <p class="eyebrow">Why Internationalauto4u</p>
+      <h2 class="font-display font-semibold tracking-tight text-4xl sm:text-5xl mt-4 leading-[1.05]">Straight answers. <span class="txt-grad">Skilled hands.</span></h2>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-5">
+      <article class="card glass overflow-hidden rv zoom">
+        <div class="media grid-bg h-44"><div class="fb" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#il-hybrid"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=900&q=70" alt="Technician using diagnostic tablet" loading="lazy"></div>
+        <div class="p-7"><h3 class="font-display text-2xl font-semibold">Hybrid-savvy diagnostics</h3>
+          <p class="text-[color:var(--muted)] mt-3 text-sm leading-relaxed">Modern scan tools and hybrid know-how, so problems are found properly — not guessed at.</p></div>
+      </article>
+      <article class="card glass overflow-hidden rv zoom" style="--td:.1s">
+        <div class="media grid-bg h-44"><div class="fb" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#il-wrench"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=900&q=70" alt="Mechanic explaining work to a customer" loading="lazy"></div>
+        <div class="p-7"><h3 class="font-display text-2xl font-semibold">Clear, upfront estimates</h3>
+          <p class="text-[color:var(--muted)] mt-3 text-sm leading-relaxed">You approve the work and the price first. If anything changes, we call before we touch it.</p></div>
+      </article>
+      <article class="card glass overflow-hidden rv zoom" style="--td:.2s">
+        <div class="media grid-bg h-44"><div class="fb" aria-hidden="true"><svg viewBox="0 0 200 100" style="width:44%"><use href="#il-car"/></svg></div>
+          <img data-fb src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=900&q=70" alt="Row of vehicles outside the shop" loading="lazy"></div>
+        <div class="p-7"><h3 class="font-display text-2xl font-semibold">One shop, whole journey</h3>
+          <p class="text-[color:var(--muted)] mt-3 text-sm leading-relaxed">Buy a car, keep it serviced, and put new tires on it — all with the same team that knows your vehicle.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS TIMELINE (replaces before/after for this niche) ============ -->
+<section id="process" class="relative py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="max-w-2xl rv">
+      <p class="eyebrow">How it works</p>
+      <h2 class="font-display font-semibold tracking-tight text-4xl sm:text-5xl mt-4 leading-[1.05]">From drop-off to <span class="txt-grad">road-ready.</span></h2>
+    </div>
+    <div class="tl-wrap rv relative mt-16" id="tl">
+      <div class="tl-line"><div class="tl-fill"></div></div>
+      <div class="tl-car" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5"><use href="#il-wheel"/></svg></div>
+      <ol class="relative grid lg:grid-cols-5 gap-10 lg:gap-6 pl-0">
+        <li class="flex lg:block gap-5"><span class="shrink-0 w-14 h-14 rounded-full grid place-items-center glass font-display text-lg text-[color:var(--a1)] relative z-10 bg-[#0A0707]">1</span><div class="lg:mt-6"><h3 class="font-display text-xl font-semibold">Book or walk in</h3><p class="text-sm text-[color:var(--muted)] mt-2">Tell us the vehicle and the issue — online, by phone or in person.</p></div></li>
+        <li class="flex lg:block gap-5"><span class="shrink-0 w-14 h-14 rounded-full grid place-items-center glass font-display text-lg text-[color:var(--a1)] relative z-10 bg-[#0A0707]">2</span><div class="lg:mt-6"><h3 class="font-display text-xl font-semibold">Diagnose</h3><p class="text-sm text-[color:var(--muted)] mt-2">Thorough inspection with modern tools, including hybrid systems.</p></div></li>
+        <li class="flex lg:block gap-5"><span class="shrink-0 w-14 h-14 rounded-full grid place-items-center glass font-display text-lg text-[color:var(--a1)] relative z-10 bg-[#0A0707]">3</span><div class="lg:mt-6"><h3 class="font-display text-xl font-semibold">Approve</h3><p class="text-sm text-[color:var(--muted)] mt-2">A clear written estimate. Nothing starts until you say yes.</p></div></li>
+        <li class="flex lg:block gap-5"><span class="shrink-0 w-14 h-14 rounded-full grid place-items-center glass font-display text-lg text-[color:var(--a1)] relative z-10 bg-[#0A0707]">4</span><div class="lg:mt-6"><h3 class="font-display text-xl font-semibold">Repair</h3><p class="text-sm text-[color:var(--muted)] mt-2">Quality parts, careful work and updates if anything changes.</p></div></li>
+        <li class="flex lg:block gap-5"><span class="shrink-0 w-14 h-14 rounded-full grid place-items-center relative z-10 font-display text-lg text-[#FFFFFF]" style="background:var(--grad);box-shadow:var(--glow)">5</span><div class="lg:mt-6"><h3 class="font-display text-xl font-semibold">Road-ready</h3><p class="text-sm text-[color:var(--muted)] mt-2">Final check, walkthrough of the work, and you’re back on the road.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARALLAX CTA BAND ============ -->
+<section class="band relative pt-28 sm:pt-36 pb-52 sm:pb-60 overflow-hidden grid-bg" id="bandBg" style="background-image:linear-gradient(rgba(10,7,7,.72),rgba(10,7,7,.85)),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=60')">
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="orb" style="width:480px;height:480px;left:20%;top:-20%;opacity:.3"></div>
+    <div class="hidden md:block absolute right-[6%] top-1/2 -translate-y-1/2 w-[28%] text-[color:var(--a2)] opacity-20"><svg viewBox="0 0 200 100" class="w-full"><use href="#il-tow"/></svg></div>
+  </div>
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8 rv">
+    <p class="eyebrow">Warning light on? Strange noise?</p>
+    <h2 class="font-display font-semibold tracking-tight text-4xl sm:text-6xl mt-4 leading-[1.02] max-w-3xl">Don’t wait for it to get <span class="shimmer">worse.</span></h2>
+    <p class="mt-6 text-[color:var(--muted)] max-w-xl text-lg">Call the shop and describe what’s happening — we’ll tell you what to do next and the soonest time we can see your car.</p>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a href="tel:+12064240001" class="btn btn-primary pulse text-base"><svg class="w-5 h-5"><use href="#i-phone"/></svg> (206) 424-0001</a>
+      <a href="#book" class="btn btn-ghost text-base">Request a time <svg class="w-4 h-4"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+  <div class="road" aria-hidden="true">
+    <div class="road-line"></div>
+    <div class="car">
+      <svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-full overflow-visible">
+        <g class="car-body">
+          <path d="M8 56h184M18 56c-7 0-10-4-10-9 0-7 5-10 13-12l22-6 15-15c3-3 6-4 11-4h34c5 0 8 2 11 5l13 14 18 5c7 2 9 7 9 12 0 5-3 9-8 9"/>
+          <path d="M54 29h30V16H68zM92 29h32l-11-13H92z"/>
+          <polygon class="beam" stroke="none" points="190,44 340,22 340,70"/>
+        </g>
+        <g class="whl"><circle cx="48" cy="58" r="12"/><circle cx="48" cy="58" r="3.5"/><path d="M48 46v24M36 58h24M39.5 49.5l17 17M56.5 49.5l-17 17" stroke-width="1.3"/></g>
+        <g class="whl"><circle cx="150" cy="58" r="12"/><circle cx="150" cy="58" r="3.5"/><path d="M150 46v24M138 58h24M141.5 49.5l17 17M158.5 49.5l-17 17" stroke-width="1.3"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="book" class="relative py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4 rv">
+      <p class="eyebrow">Book a service</p>
+      <h2 class="font-display font-semibold tracking-tight text-4xl sm:text-5xl mt-4 leading-[1.05]">Tell us what you <span class="txt-grad">need.</span></h2>
+      <p class="mt-5 text-[color:var(--muted)] leading-relaxed">Pick a service, a day and a time that suits you. We’ll confirm by phone or email.</p>
+      <ul class="mt-8 space-y-4 text-sm">
+        <li class="flex gap-3 items-start"><span class="ico !w-10 !h-10 !rounded-xl"><svg class="w-5 h-5"><use href="#i-phone"/></svg></span><span><span class="block text-[color:var(--muted)] text-xs">Call</span><a class="font-medium hover:text-[color:var(--a1)]" href="tel:+12064240001">(206) 424-0001</a></span></li>
+        <li class="flex gap-3 items-start"><span class="ico !w-10 !h-10 !rounded-xl"><svg class="w-5 h-5"><use href="#i-pin"/></svg></span><span><span class="block text-[color:var(--muted)] text-xs">Visit</span><span class="font-medium">18820 International Blvd, SeaTac, WA 98188</span></span></li>
+      </ul>
+    </div>
+
+    <div class="lg:col-span-8 rv">
+      <div class="glass rounded-[32px] p-5 sm:p-9 relative overflow-hidden">
+        <form id="bookForm" novalidate>
+          <fieldset>
+            <legend class="font-display text-lg font-semibold mb-4">What do you need?</legend>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <label class="block"><input class="sr-only" type="radio" name="service" value="repair"><span class="svc-opt"><span class="ico"><svg class="w-6 h-6"><use href="#i-shield"/></svg></span><span class="font-display font-semibold">Auto Repair</span></span></label>
+              <label class="block"><input class="sr-only" type="radio" name="service" value="sales"><span class="svc-opt"><span class="ico"><svg class="w-6 h-6"><use href="#i-layers"/></svg></span><span class="font-display font-semibold">Auto Sales</span></span></label>
+              <label class="block"><input class="sr-only" type="radio" name="service" value="hybrid"><span class="svc-opt"><span class="ico"><svg class="w-6 h-6"><use href="#i-bolt"/></svg></span><span class="font-display font-semibold">Hybrid Specialist</span></span></label>
+              <label class="block"><input class="sr-only" type="radio" name="service" value="tires"><span class="svc-opt"><span class="ico"><svg class="w-6 h-6"><use href="#il-wheel"/></svg></span><span class="font-display font-semibold">Wheels &amp; Tires</span></span></label>
+            </div>
+          </fieldset>
+
+          <div class="grid sm:grid-cols-2 gap-3 mt-6">
+            <div class="fl sm:col-span-2"><input id="vehicle" name="vehicle" type="text" placeholder=" " autocomplete="off" required><label for="vehicle" id="vehLabel">Vehicle (year, make, model)</label></div>
+            <div class="extra sm:col-span-2" id="extra"><div><div class="fl"><input id="extraField" name="extra" type="text" placeholder=" " autocomplete="off"><label for="extraField" id="extraLabel">Details</label></div></div></div>
+            <div class="fl"><input id="name" name="name" type="text" placeholder=" " autocomplete="name" required><label for="name">Your name</label></div>
+            <div class="fl"><input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" required><label for="phone">Phone number</label></div>
+          </div>
+
+          <div class="grid sm:grid-cols-5 gap-6 mt-6">
+            <div class="sm:col-span-2"><div class="fl"><input id="date" name="date" type="date" placeholder=" " required><label for="date">Preferred date</label></div></div>
+            <fieldset class="sm:col-span-3">
+              <legend class="text-xs text-[color:var(--muted)] mb-2 tracking-wide">Preferred time</legend>
+              <div class="flex flex-wrap gap-2" id="slots"></div>
+            </fieldset>
+          </div>
+
+          <div class="fl mt-6"><textarea id="notes" name="notes" placeholder=" "></textarea><label for="notes">Notes (optional)</label></div>
+
+          <p id="formErr" class="mt-4 text-sm text-red-300 min-h-[1.25rem]" role="alert" aria-live="polite"></p>
+
+          <div class="mt-3 flex flex-wrap items-center gap-4">
+            <button class="btn btn-primary text-base" type="submit">Request booking <svg class="w-5 h-5"><use href="#i-arrow"/></svg></button>
+            <p class="text-sm text-[color:var(--muted)] flex items-center gap-2"><svg class="w-4 h-4 text-[color:var(--a1)]"><use href="#i-shield"/></svg>No payment needed. We’ll confirm your time shortly.</p>
+          </div>
+        </form>
+
+        <div id="success" class="hidden text-center py-10" role="status">
+          <svg class="check mx-auto w-24 h-24 text-[color:var(--a2)]" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="40" cy="40" r="30"/><path d="m27 41 9 9 17-19"/></svg>
+          <h3 class="font-display text-3xl font-semibold mt-6">Request received</h3>
+          <p class="text-[color:var(--muted)] mt-2">We’ll confirm your appointment by phone or email.</p>
+          <p class="mt-6 inline-block glass rounded-full px-6 py-3 font-display tracking-widest text-[color:var(--a1)]" id="refCode">IA4U-0000</p>
+          <div class="mt-6"><button id="again" class="text-sm underline underline-offset-4 text-[color:var(--muted)] hover:text-white min-h-[44px]">Make another booking</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact" class="relative border-t border-[color:var(--line)] pt-16 pb-10">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 grid md:grid-cols-12 gap-10">
+    <div class="md:col-span-5">
+      <svg class="h-11 w-auto" viewBox="0 0 350 64" width="240" height="44" role="img" aria-label="Internationalauto4u"><use href="#logo-full"/></svg>
+      <p class="mt-5 text-sm text-[color:var(--muted)] max-w-sm leading-relaxed">Auto repair and sales, hybrid specialist, wheels and tires — a modern, honest auto shop on International Blvd in SeaTac.</p>
+      <div class="mt-6 flex gap-2">
+        <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-full glass grid place-items-center hover:text-[color:var(--a1)] transition"><svg class="w-5 h-5"><use href="#i-fb"/></svg></a>
+        <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full glass grid place-items-center hover:text-[color:var(--a1)] transition"><svg class="w-5 h-5"><use href="#i-ig"/></svg></a>
+        <a href="#" aria-label="YouTube" class="w-11 h-11 rounded-full glass grid place-items-center hover:text-[color:var(--a1)] transition"><svg class="w-5 h-5"><use href="#i-yt"/></svg></a>
+      </div>
+    </div>
+    <div class="md:col-span-4 text-sm space-y-4">
+      <h3 class="eyebrow">Contact</h3>
+      <p class="flex gap-3"><svg class="w-5 h-5 shrink-0 text-[color:var(--a1)]"><use href="#i-pin"/></svg>18820 International Blvd,<br>SeaTac, WA 98188</p>
+      <p class="flex gap-3"><svg class="w-5 h-5 shrink-0 text-[color:var(--a1)]"><use href="#i-phone"/></svg><a class="hover:text-[color:var(--a1)]" href="tel:+12064240001">(206) 424-0001</a></p>
+      <p class="flex gap-3"><svg class="w-5 h-5 shrink-0 text-[color:var(--a1)]"><use href="#i-mail"/></svg><a class="hover:text-[color:var(--a1)]" href="mailto:info@internationalauto4u.com">info@internationalauto4u.com</a></p>
+    </div>
+    <div class="md:col-span-3 text-sm">
+      <h3 class="eyebrow flex items-center gap-2"><svg class="w-4 h-4"><use href="#i-clock"/></svg>Hours <span class="normal-case tracking-normal text-[10px] text-[color:var(--muted)]">(placeholder)</span></h3>
+      <dl class="mt-4 space-y-2 text-[color:var(--muted)]">
+        <div class="flex justify-between gap-4"><dt>Mon – Fri</dt><dd class="text-[color:var(--text)]">9:00 – 6:00</dd></div>
+        <div class="flex justify-between gap-4"><dt>Saturday</dt><dd class="text-[color:var(--text)]">10:00 – 4:00</dd></div>
+        <div class="flex justify-between gap-4"><dt>Sunday</dt><dd class="text-[color:var(--text)]">Closed</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 mt-12 pt-6 border-t border-[color:var(--line)] flex flex-wrap justify-between gap-3 text-xs text-[color:var(--muted)]">
+    <p>© <span id="yr">2026</span> Internationalauto4u. All rights reserved.</p>
+    <p>Concept prototype</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* Footer year */
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* Mobile menu */
+  var mBtn = $('#menuBtn'), mMenu = $('#mobileMenu');
+  mBtn.addEventListener('click', function(){
+    var open = mMenu.classList.toggle('hidden') === false;
+    mBtn.setAttribute('aria-expanded', open);
+    mBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  $$('a', mMenu).forEach(function(a){a.addEventListener('click', function(){mMenu.classList.add('hidden');mBtn.setAttribute('aria-expanded','false');})});
+
+  /* Image fallback handling: show photo only when it actually loads */
+  function markLoaded(img){ var m = img.closest('.media'); if(m) m.classList.add('has'); }
+  $$('img[data-fb]').forEach(function(img){
+    if(img.complete && img.naturalWidth > 0){ markLoaded(img); }
+    img.addEventListener('load', function(){ markLoaded(img); });
+    img.addEventListener('error', function(){ img.remove(); });
+  });
+  /* Band background: if the remote photo fails, the grid + gradient remain */
+
+  /* Videos: reveal only when playable; fall back to image layer otherwise */
+  function wireVideo(v, media){
+    if(!v) return;
+    var ok = function(){ v.style.opacity = 1; if(media) media.classList.add('has'); };
+    v.addEventListener('loadeddata', ok);
+    v.addEventListener('playing', ok);
+    v.addEventListener('error', function(){ v.style.display = 'none'; }, true);
+    var srcs = $$('source', v);
+    if(srcs.length){ srcs[srcs.length-1].addEventListener('error', function(){ v.style.display='none'; }); }
+    var p = v.play && v.play(); if(p && p.catch) p.catch(function(){});
+  }
+  wireVideo($('#heroVideo'), null);
+  var gv = $('#galVideo'), gTile = $('#vidTile');
+  wireVideo(gv, gTile);
+  var vBtn = $('#vidBtn'), vIco = $('#vidIco');
+  vBtn.addEventListener('click', function(){
+    if(gv.paused){ var p = gv.play(); if(p && p.catch) p.catch(function(){}); }
+    else { gv.pause(); }
+  });
+  function syncVid(){
+    var playing = !gv.paused;
+    vIco.setAttribute('href', playing ? '#i-pause' : '#i-play');
+    vBtn.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
+    vBtn.setAttribute('aria-pressed', playing);
+  }
+  gv.addEventListener('play', syncVid); gv.addEventListener('pause', syncVid);
+  if(reduce){ var hv = $('#heroVideo'); if(hv){ hv.removeAttribute('autoplay'); hv.pause && hv.pause(); } gv.removeAttribute('autoplay'); gv.pause && gv.pause(); syncVid(); }
+
+  /* Scroll reveal */
+  var rvs = $$('.rv');
+  if('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('in'); }); }
+
+  /* Count-up */
+  var cu = $('#countUp');
+  if(cu){
+    var to = parseInt(cu.getAttribute('data-to'),10) || 0;
+    if(reduce){ cu.textContent = to; }
+    else {
+      var start = null, delay = 1900, dur = 1400;
+      var step = function(ts){
+        if(start === null) start = ts + delay;
+        var t = Math.min(Math.max((ts - start)/dur, 0), 1);
+        cu.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
+        if(t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+  }
+
+  /* Embers */
+  var eb = $('#embers');
+  if(eb && !reduce){
+    for(var i=0;i<25;i++){
+      var s = document.createElement('span');
+      s.className = 'ember';
+      var size = (Math.random()*2.6 + 1.4).toFixed(1) + 'px';
+      s.style.left = (Math.random()*100).toFixed(1) + '%';
+      s.style.setProperty('--s', size);
+      s.style.setProperty('--d', (Math.random()*9 + 8).toFixed(1) + 's');
+      s.style.setProperty('--dl', (-Math.random()*14).toFixed(1) + 's');
+      s.style.setProperty('--x', ((Math.random()-.5)*160).toFixed(0) + 'px');
+      eb.appendChild(s);
+    }
+  }
+
+  /* Mouse glow + parallax */
+  var hero = $('#hero'), glow = $('#mouseGlow');
+  var pars = $$('[data-par]', hero);
+  if(hero && !reduce && window.matchMedia('(pointer:fine)').matches){
+    hero.addEventListener('mousemove', function(e){
+      var r = hero.getBoundingClientRect();
+      var x = e.clientX - r.left, y = e.clientY - r.top;
+      glow.style.left = x + 'px'; glow.style.top = y + 'px';
+      var nx = (x / r.width - .5), ny = (y / r.height - .5);
+      pars.forEach(function(el){
+        var k = parseFloat(el.getAttribute('data-par')) || 10;
+        el.style.transform = 'translate3d(' + (nx*k).toFixed(2) + 'px,' + (ny*k).toFixed(2) + 'px,0)';
+      });
+    });
+  }
+
+  /* Service card → preselect in booking */
+  var extraMap = {
+    repair:{label:'What’s happening? (lights, noises)'},
+    hybrid:{label:'Any hybrid warning lights?'},
+    sales:{label:'Budget or vehicle type'},
+    tires:{label:'Tire size (e.g. 225/45R17)'}
+  };
+  var extra = $('#extra'), extraField = $('#extraField'), extraLabel = $('#extraLabel'), vehLabel = $('#vehLabel');
+  function onService(v){
+    extraLabel.textContent = extraMap[v].label;
+    extra.classList.add('open');
+    vehLabel.textContent = v === 'sales' ? 'Trade-in vehicle (optional)' : 'Vehicle (year, make, model)';
+  }
+  $$('input[name=service]').forEach(function(r){ r.addEventListener('change', function(){ onService(r.value); }); });
+  $$('[data-pick]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var r = $('input[name=service][value=' + a.getAttribute('data-pick') + ']');
+      if(r){ r.checked = true; onService(r.value); }
+    });
+  });
+
+  /* Time slots */
+  var slots = ['8:00 AM','9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
+  var sWrap = $('#slots');
+  slots.forEach(function(t, i){
+    var l = document.createElement('label');
+    l.innerHTML = '<input class="sr-only" type="radio" name="time" value="' + t + '"><span class="pill">' + t + '</span>';
+    sWrap.appendChild(l);
+  });
+
+  /* Date min = today */
+  var d = $('#date'), now = new Date();
+  var pad = function(n){ return (n<10?'0':'') + n; };
+  d.min = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate());
+
+  /* Form submit */
+  var form = $('#bookForm'), err = $('#formErr'), ok = $('#success');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = form.elements;
+    var svc = $('input[name=service]:checked'), tm = $('input[name=time]:checked');
+    var digits = (f.phone.value || '').replace(/\D/g,'');
+    var msg = '';
+    if(!svc) msg = 'Please choose a service.';
+    else if(!f.vehicle.value.trim() && svc.value !== 'sales') msg = 'Please tell us about your vehicle.';
+    else if(!f.name.value.trim()) msg = 'Please enter your name.';
+    else if(digits.length < 7) msg = 'Please enter a valid phone number so we can confirm.';
+    else if(!f.date.value) msg = 'Please pick a preferred date.';
+    else if(!tm) msg = 'Please pick a preferred time.';
+    err.textContent = msg;
+    if(msg){ return; }
+    var code = 'IA4U-' + Math.random().toString(36).slice(2,6).toUpperCase() + '-' + String(Math.floor(Math.random()*90)+10);
+    $('#refCode').textContent = code;
+    form.classList.add('hidden');
+    ok.classList.remove('hidden');
+    ok.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+  });
+  $('#again').addEventListener('click', function(){
+    form.reset(); extra.classList.remove('open'); err.textContent = '';
+    vehLabel.textContent = 'Vehicle (year, make, model)';
+    ok.classList.add('hidden'); form.classList.remove('hidden');
+    form.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'start'});
+  });
+
+  /* Scroll progress tire */
+  var pr = $('#prog'), pw = $('#progWheel'), tick = false;
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? Math.min(Math.max(window.scrollY / h, 0), 1) : 0;
+    pr.style.transform = 'scaleX(' + p + ')';
+    pw.style.left = 'calc(' + (p * 100) + '% + ' + (11 - p * 22) + 'px)';
+    pw.style.transform = 'translate(-50%,-50%) rotate(' + (window.scrollY * .7) + 'deg)';
+    tick = false;
+  }
+  window.addEventListener('scroll', function(){ if(!tick){ tick = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
